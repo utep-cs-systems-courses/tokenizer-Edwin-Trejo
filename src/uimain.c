@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 
-int main(){
-
+int main()
+{
   char userInput[100];
-  
+     /*
   while(1){
     putchar('$');
     fgets(userInput,100,stdin);
@@ -13,8 +13,13 @@ int main(){
     
   }
   
-  return 0;
-  
+  return 0;*/
+  char str[30];
+  printf("Tokenizer!\n");
+  printf("Enter a string:\n");
+  fgets(str,30,stdin);
+
+  printf("You entered: %s\n",str);
 }
 
 
