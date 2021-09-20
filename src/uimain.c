@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "history.h"
+#include "tokenizer.h"
 
 int main()
 {
@@ -20,6 +21,10 @@ int main()
   fgets(str,30,stdin);
 
   printf("You entered: %s\n",str);
+
+  /*  char space = ' ';
+  printf(space_char(space));*/
+ 
 }
 
 
