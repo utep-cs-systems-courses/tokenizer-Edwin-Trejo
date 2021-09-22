@@ -16,14 +16,15 @@ int main()
   
   return 0;*/
   char str[30];
+  char *word = "hello world";
   printf("Tokenizer!\n");
   printf("Enter a string:\n");
   fgets(str,30,stdin);
 
   printf("You entered: %s\n",str);
 
-  /*  char space = ' ';
-  printf(space_char(space));*/
+  /*  char space = ' ';*/
+  printf("CountWords = %d\n", count_words(str));
  
 }
 

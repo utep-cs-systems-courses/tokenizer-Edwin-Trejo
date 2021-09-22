@@ -43,21 +43,43 @@ char *word_terminator(char *word)
  
 int count_words(char *str)
 {
-  int count = 0;
-  if(str[0] == '\0' || str[0] == ' '){
-    return 0;
-  }
-  for (int i = 0; str[i] != '\t'; i++){
-    if(str[i] == ' ' && str[i+1] != ' '){
-      count++;
+  int count= 1;
+  int temp = 0;
+  while(str[temp]!='\0')
+    {
+      if(str[1]=='\0')
+	{
+	  count -=1 ;
+	  return count;
+	}
+      if(non_space_char(str[temp]) && space_char(str[temp+1]))
+	{
+	  count++;
+	}
+      temp++;
+     
     }
-  }
-  return count++;
+  return count;
+
 }
-	
+/*	
+char *copy_str(char *inStr, short len)
+{
+}
 
+char **tokenize(char* str)
+{
+}
 
+*/
 
+void print_tokens(char **tokens)
+{
+}
+
+void free_tokens(char **tokens)
+{
+}
 
 
 
