@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 int space_char(char c)   /*checks if there is a space char*/
 {
@@ -55,19 +56,53 @@ int count_words(char *str)
 
   return count;
 }
-/*	
+	
 char *copy_str(char *inStr, short len)
 {
+  char *copy = (char*)malloc((len + 1) * sizeof(char));
+
+  for(int i = 0; i < len; i++)
+    {
+      copy[i] = inStr[i];
+    }
+  copy[len] = '\0';
+  return copy;
 }
 
 char **tokenize(char* str)
 {
+  //get count of words
+  int words = count_words(str);
+  //allocate memory
+  char **tokens = (char**)malloc((words + 1) * sizeof(char*));
+  int i = 0;
+  for(i = 0; i < words; i++)
+    {
+      char* char_start = word_start(str); //pointer to start of word
+      str = word_terminator(char_start);
+      
+      tokens[i] = copy_str(char_start, str - char_start);
+    }
+  tokens[i] = '\0';
+  return tokens;
 }
 
-*/
+
 
 void print_tokens(char **tokens)
 {
+  char **curr = tokens;
+  if(*tokens == 0)
+    {
+      printf("\n");
+    }
+  while(*curr != 0)
+    {
+      printf("%s\n", *curr);
+      curr++;
+    }
+  printf("\n");
+    
 }
 
 void free_tokens(char **tokens)

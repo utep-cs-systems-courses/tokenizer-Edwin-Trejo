@@ -15,16 +15,23 @@ int main()
   }
   
   return 0;*/
-  char str[30];
+  char str[50];
   char *word = "hello world";
   printf("Tokenizer!\n");
   printf("Enter a string:\n");
-  fgets(str,30,stdin);
-
-  printf("You entered: %s\n",str);
-
-  /*  char space = ' ';*/
+  fgets(str,50,stdin);
+  printf("You entered: %s",str);
   printf("CountWords = %d\n", count_words(str));
+  printf("\n");
+  char **tokens = tokenize(str);
+  print_tokens(tokens);
+  free_tokens(tokens);
+  
+
+ 
+ 
+
+  
  
 }
 
