@@ -18,27 +18,21 @@ int non_space_char(char c)    /*Checks if the char is a space or not*/
 /*Goes through a loop checking for a space or a char to determine if it is the beginning of the word*/
 char *word_start(char *str) 
 {
-  char *ptr;
-  for(int i = 0; str[i] != '\t'; i++){
-	if(str[i] == ' ' && str[i+1] != ' '){
-	  ptr = &(str[i+1]);
-	  return ptr;
-	}
-      }
-      return 0;
+  while(space_char(*str))
+    {
+      str++;
+    }
+  return str;
 }
 
 
 char *word_terminator(char *word)
 {
-  char *ptr;
-  for(int i = 0; word [i] != '\t'; i++){
-    if(word[i] != ' ' && word [i+1] == ' '){
-      ptr = &(word[i]);
-      return ptr;
+  while(non_space_char(*word))
+    {
+      word++;
     }
-  }
-  return 0;
+  return word;
 }
  
 int count_words(char *str)
@@ -57,10 +51,9 @@ int count_words(char *str)
 	  count++;
 	}
       temp++;
-     
     }
-  return count;
 
+  return count;
 }
 /*	
 char *copy_str(char *inStr, short len)
@@ -79,6 +72,13 @@ void print_tokens(char **tokens)
 
 void free_tokens(char **tokens)
 {
+  char **curr = tokens;
+  while(*curr !=0)
+    {
+      free(*curr);
+      curr++;
+    }
+  free(tokens);
 }
 
 
